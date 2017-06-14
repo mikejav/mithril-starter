@@ -1,5 +1,5 @@
 # mithril-starter
-Provides starter kit for use mithril in convenient way using ES6 and SCSS.
+Provides starter kit for use mithril in convenient way using Webpack, ES6, JSX and SCSS.
 
 ## Usage
 ### Install:
