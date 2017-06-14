@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <base href="/">
+</head>
+
+<body>
+  <div id="app">Loading... Please wait</div>
+  
+  <% if (process.env.NODE_ENV === 'development') { %>
+  <script type="text/javascript" src="http://localhost:8080/webpack-dev-server.js"></script>
+  <% } %>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
