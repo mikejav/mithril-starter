@@ -4,9 +4,5 @@
     ],
     "exclude": [
         "dist"
-    ],
-    "compilerOptions": {
-        "target": "ES6",
-        "baseUrl": "./src"
-    }
+    ]
 }
