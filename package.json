@@ -1,6 +1,6 @@
 {
   "name": "mithril-starter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "node ./build/development.js",
     "build": "node ./build/build.js"
