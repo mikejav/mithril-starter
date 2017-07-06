@@ -1,6 +1,5 @@
 [![David](https://david-dm.org/mikejav/mithril-starter/status.svg)](https://david-dm.org/mikejav/mithril-starter)
 [![David](https://david-dm.org/mikejav/mithril-starter/dev-status.svg)](https://david-dm.org/mikejav/mithril-starter?type=dev)
-[![Version](https://badge.fury.io/gh/mikejav%2Fmithril-starter.svg)](https://badge.fury.io/gh/mikejav%2Fmithril-starter)
 
 # mithril-starter
 Provides starter kit for use mithril in convenient way using Webpack, ES6, JSX and SCSS.
