@@ -1,28 +1,17 @@
 import m from "mithril"
 
-// TODO: move this to oninit lifecycle method
-var dataStore = {
-    scrolled: false
+window.onscroll = function () {
+    if (window.pageYOffset == 0) {
+        document.body.classList.remove('scrolled')
+    } else {
+        document.body.classList.add("scrolled")
+    }
 }
 
 export var main = {
-    onscrollEvent(e) {
-        if (e.srcElement.scrollTop > 0) {
-            this.scrolled = true
-            dataStore.scrolled = true
-        } else {
-            this.scrolled = false
-            dataStore.scrolled = false
-        }
-    },
-
-    onRemoveEvent() {
-        dataStore.scrolled = false
-    },
-
     view: function (vnode) {
         return [
-            m("header#header", { class: dataStore.scrolled ? "shadow" : "", key: "header" },
+            m("header#header", { key: "header" },
                 m(".container",
                     m("a.logo", { href: "/", oncreate: m.route.link }, "LOGO"),
                     m("nav.navlinks",
@@ -40,10 +29,6 @@ export var main = {
 
             // router outlet
             m("main#main",
-                {
-                    onscroll: this.onscrollEvent,
-                    onremove: this.onRemoveEvent
-                },
                 m(".container", vnode.children)
             )
         ]

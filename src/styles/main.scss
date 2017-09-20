@@ -6,7 +6,8 @@
 
 body {
     background: #F1F1F1;
-    font-family: Helvetica
+    font-family: Helvetica;
+    margin-top: 56px + 20px;
 }
 
 .container {
@@ -15,34 +16,23 @@ body {
 }
 
 #header {
+    position: fixed;
     width: 100%;
     height: 56px;
-    background: #478A4C;
+    background: #37474F;
     line-height: 56px;
     color: #fff;
-    position: absolute;
     z-index: 10;
+    top: 0;
+    transition: background .3s;
+
+    .container {
+        transition: .3s;
+    }
 
     a {
         color: #fff;
         text-decoration: none;
-    }
-
-    &.shadow::after {
-        opacity: 1;
-    }
-
-    &::after {
-        box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.4);
-        content: '';
-        display: block;
-        height: 6px;
-        opacity: 0;
-        position: absolute;
-        top: 100%;
-        transition: opacity 500ms;
-        width: 100%;
-        pointer-events: none;
     }
 
     .logo {
@@ -61,7 +51,7 @@ body {
             color: #fff;
             height: 56px;
             border-bottom: 2px solid transparent;
-            transition: .9s;
+            transition: .3s;
             opacity: .7;
 
             &.active {
@@ -79,14 +69,26 @@ body {
     }
 }
 
-#main {
+.scrolled #header {
+
+}
+
+
+#header::after {
+    box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.4);
+    content: '';
+    display: block;
+    height: 6px;
+    opacity: 0;
     position: absolute;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    padding-top: 30px;
+    top: 100%;
+    transition: opacity .3s;
+    width: 100%;
+    pointer-events: none;
+}
+
+.scrolled #header::after {
+    opacity: 1;
 }
 
 //temp
