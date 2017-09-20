@@ -8,6 +8,7 @@ Provides starter kit for use mithril in convenient way using Webpack, ES6, JSX a
 ### Install:
 ```shell
 git clone https://github.com/mikejav/mithril-starter
+cd mithril-starter
 npm install
 ```
 
