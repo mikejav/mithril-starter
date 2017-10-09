@@ -2,7 +2,7 @@
 [![David](https://david-dm.org/mikejav/mithril-starter/dev-status.svg)](https://david-dm.org/mikejav/mithril-starter?type=dev)
 
 # mithril-starter
-Provides starter kit for use mithril in convenient way using Webpack, ES6, JSX and SCSS.
+Provides starter kit for use Mithril and Bootstrap in convenient way using Webpack, ES6, JSX and SCSS.
 
 ## Usage
 ### Install:

@@ -1,6 +1,6 @@
-var merge = require('webpack-merge')
-var webpack = require('webpack')
-var baseWebpackConfig = require('./webpack.base.conf')
+var merge = require('webpack-merge'),
+    webpack = require('webpack'),
+    baseWebpackConfig = require('./webpack.base.conf')
 
 module.exports = merge(baseWebpackConfig, {
     plugins: [

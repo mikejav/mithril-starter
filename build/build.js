@@ -1,20 +1,20 @@
 process.env.NODE_ENV = 'production'
 
-var md = require('mkdirp')
-var rm = require('rimraf')
-var ncp = require('ncp').ncp
-var path = require('path')
-var webpack = require('webpack')
-var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+var md = require('mkdirp'),
+    rm = require('rimraf'),
+    ncp = require('ncp').ncp,
+    path = require('path'),
+    webpack = require('webpack'),
+    config = require('../config'),
+    webpackConfig = require('./webpack.prod.conf')
 
 // wipe dist directory for clean build and then run webpack
 // remove distDir
-rm(path.join(config.build.distDir), err => {
+rm(config.build.distDir, err => {
     if (err) throw err
 
     // create distDir
-    md(path.join(config.build.distDir), err => {
+    md(config.build.distDir, err => {
         if (err) throw err
 
         // copy files from srcDir/static to distDir
