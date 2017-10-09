@@ -1,80 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "Variables";
+@import "~bootstrap/scss/bootstrap";
 
+// for fixed header only
 body {
-    background: #F1F1F1;
-    font-family: Helvetica;
-    margin-top: 56px + 20px;
+    padding-top: 3.5rem;
 }
 
-.container {
-    width: 1050px;
-    margin: 0 auto;
+.navbar {
+    background: linear-gradient(to right, #11998e, #05cf4f);
 }
 
-#header {
-    position: fixed;
-    width: 100%;
-    height: 56px;
-    background: #37474F;
-    line-height: 56px;
-    color: #fff;
-    z-index: 10;
-    top: 0;
-    transition: background .3s;
-
-    .container {
-        transition: .3s;
-    }
-
-    a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .logo {
-        float: left;
-    }
-
-    .navlinks {
-        float: right;
-
-        ul {
-            display: inline;
-        }
-
-        li {
-            display: inline-block;
-            color: #fff;
-            height: 56px;
-            border-bottom: 2px solid transparent;
-            transition: .3s;
-            opacity: .7;
-
-            &.active {
-                border-bottom-color: #fff;
-                transition: .9s;
-                opacity: 1;
-            }
-
-            a {
-                padding: 0 16px;
-                display: inline-block;
-                height: 56px
-            }
-        }
-    }
-}
-
-.scrolled #header {
-
-}
-
-
-#header::after {
+.navbar::after {
     box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.4);
     content: '';
     display: block;
@@ -82,16 +18,20 @@ body {
     opacity: 0;
     position: absolute;
     top: 100%;
+    left: 0;
     transition: opacity .3s;
     width: 100%;
     pointer-events: none;
 }
 
-.scrolled #header::after {
+.scrolled .navbar::after {
     opacity: 1;
 }
 
-//temp
-.temp {
-    height: 1900px
+// ANIMATIONS
+
+.fancy {animation:fade-in 0.5s;}
+@keyframes fade-in {
+    from {opacity:0;}
+    to {opacity:1;}
 }

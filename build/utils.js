@@ -1,5 +1,5 @@
-var path = require('path')
-var config = require('../config')
+var path = require('path'),
+    config = require('../config')
 
 exports.assetsPath = function (_path) {
     var assetsSubDirectory = process.env.NODE_ENV === 'production'

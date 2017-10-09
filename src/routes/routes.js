@@ -1,6 +1,8 @@
 import m from "mithril"
 
 import { main } from "layouts/main"
+import Home from "controllers/home"
+import Lorem from "controllers/lorem"
 
 export { generate } from "routes/generate"
 
@@ -8,13 +10,13 @@ export var routes = {
     'index': {
         path: '/',
         render: () => {
-            return m(main, m("div.temp", "long page"))
+            return m(main, m(Home))
         }
     },
-    'about': {
-        path: '/about',
+    'lorem': {
+        path: '/lorem-ipsum',
         render: () => {
-            return m(main, m("div", "bar"))
+            return m(main, m(Lorem))
         }
     }
 }

@@ -1,6 +1,6 @@
 import m from "mithril"
 
-window.onscroll = function () {
+window.onscroll = () => {
     if (window.pageYOffset == 0) {
         document.body.classList.remove('scrolled')
     } else {
@@ -8,19 +8,34 @@ window.onscroll = function () {
     }
 }
 
+var menuCollapsed = 0
+
 export var main = {
-    view: function (vnode) {
+
+    scrollToTop() {
+        window.scrollTo(0, 0)
+    },
+
+    collapseMenu() {
+        menuCollapsed = !menuCollapsed
+    },
+
+    view(vnode) {
         return [
-            m("header#header", { key: "header" },
+            m("nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-success", { key: "navbar" },
                 m(".container",
-                    m("a.logo", { href: "/", oncreate: m.route.link }, "LOGO"),
-                    m("nav.navlinks",
-                        m("ul",
-                            m("li", { class: m.route.get() == "/" ? "active" : "" },
-                                m("a", { href: "/", oncreate: m.route.link }, "INDEX")
+                    m("a.navbar-brand", { href: "/", oncreate: m.route.link }, "Logo"),
+                    m("button.navbar-toggler",
+                        { onclick: this.collapseMenu },
+                        m("span.navbar-toggler-icon")
+                    ),
+                    m("div.collapse.navbar-collapse", { class: menuCollapsed ? "show" : "" },
+                        m("ul.navbar-nav.ml-auto",
+                            m("li.nav-item", { class: m.route.get() == "/" ? "active" : "" },
+                                m("a.nav-link", { href: "/", oncreate: m.route.link }, "Home")
                             ),
-                            m("li", { class: m.route.get() == "/about" ? "active" : "" },
-                                m("a", { href: "/about", oncreate: m.route.link }, "ABOUT")
+                            m("li.nav-item", { class: m.route.get() == "/lorem-ipsum" ? "active" : "" },
+                                m("a.nav-link", { href: "/lorem-ipsum", oncreate: m.route.link }, "Lorem")
                             ),
                         )
                     )
@@ -28,8 +43,8 @@ export var main = {
             ),
 
             // router outlet
-            m("main#main",
-                m(".container", vnode.children)
+            m("main#main", { onupdate: this.scrollToTop },
+                vnode.children
             )
         ]
     }

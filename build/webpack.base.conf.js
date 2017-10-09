@@ -1,10 +1,10 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var path = require('path')
-var utils = require('./utils')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
-var webpack = require('webpack')
-var config = require('../config')
-
+var HtmlWebpackPlugin = require('html-webpack-plugin'),
+    path = require('path'),
+    utils = require('./utils'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    webpack = require('webpack'),
+    config = require('../config')
+    
 module.exports = {
     context: config.build.srcDir,
     entry: {
