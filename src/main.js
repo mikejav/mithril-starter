@@ -1,5 +1,5 @@
 import m from "mithril"
-import { routes, generate } from "routes/routes"
+import { routes } from "routes/routes"
 
 // Syles will be extracted to external .css file automatically
 import "styles/main.scss"
