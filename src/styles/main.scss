@@ -24,7 +24,7 @@ body {
     pointer-events: none;
 }
 
-.scrolled .navbar::after {
+.navbar.scrolled::after {
     opacity: 1;
 }
 

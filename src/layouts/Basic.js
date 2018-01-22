@@ -2,33 +2,48 @@ import m from "mithril"
 import NavLink from "components/NavLink";
 import Link from "components/Link";
 
-window.onscroll = () => {
-  if (window.pageYOffset === 0) {
-    document.body.classList.remove('scrolled')
-  } else {
-    document.body.classList.add("scrolled")
+export class Basic {
+  constructor() {
+    this.isScrolled = false
+    this.menuCollapsed = false
+
+    this.view = this.view.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
+    this.collapseMenu = this.collapseMenu.bind(this)
+
+    window.onscroll = this.handleScroll
   }
-}
 
-var menuCollapsed = 0
+  handleScroll() {
+    if (window.pageYOffset === 0) {
+      if (this.isScrolled === true) {
+        this.isScrolled = false
+        m.redraw()
+      }
+    } else {
+      if (this.isScrolled === false) {
+        this.isScrolled = true
+        m.redraw()
+      }
+    }
+  }
 
-export var Basic = {
   collapseMenu() {
-    menuCollapsed = !menuCollapsed
-  },
+    this.menuCollapsed = !this.menuCollapsed
+  }
 
   view(vnode) {
     return (
       <div>
-        <div className="navbar navbar-expand-md navbar-dark fixed-top bg-success" key={"navbar"}>
+        <div className={"navbar navbar-expand-md navbar-dark fixed-top bg-success" + (this.isScrolled ? " scrolled" : "")} key={"navbar"}>
           <div className="container">
-            <Link href="/" className="navbar-brand">Logo</Link>
+            <Link to="/" className="navbar-brand">Logo</Link>
 
             <button className="navbar-toggler" onclick={this.collapseMenu}>
               <span className="navbar-toggler-icon"> </span>
             </button>
 
-            <div className={"collapse navbar-collapse" + (menuCollapsed ? " show" : "")}>
+            <div className={"collapse navbar-collapse" + (this.menuCollapsed ? " show" : "")}>
               <ul className="navbar-nav ml-auto">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/lorem-ipsum">Lorem</NavLink>
