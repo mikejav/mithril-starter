@@ -2,7 +2,6 @@ import m from "mithril"
 
 var NavLink = {
   scrollToTop() {
-    console.log("scrolling to top")
     window.scrollTo(0, 0)
   },
 
@@ -21,7 +20,7 @@ var NavLink = {
     attrs.className = "nav-link"
 
     return (
-      <li className={"nav-item" + (m.route.get() == attrs.href ? " active" : "")}>
+      <li className={"nav-item" + (m.route.get() === attrs.href ? " active" : "")}>
         <a {...attrs}>{vnode.children}</a>
       </li>
     )
